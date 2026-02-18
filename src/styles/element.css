@@ -1,0 +1,48 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    background-color: rgb(216, 232, 248);
+    border-radius: 5px;
+    min-width: 20svw;
+}
+
+.item > * {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.item > button {
+    font-size: 8px;
+    padding: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.item > span {
+    position: relative;
+}
+
+span::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -8px;
+  right: -8px;
+  bottom: 7px;
+  border-radius: 7px;
+
+  background-color: rgb(74, 115, 205);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+
+.item:has(input:checked) span::before {
+    transform: scaleX(1);
+    
+    border-radius: 7px;
+    
+}
