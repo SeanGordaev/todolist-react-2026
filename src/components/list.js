@@ -16,7 +16,7 @@ export const List = () => {
         <div className='list'>
             {Array.from({ length:tasks.length }, (_, i) => i).map(
                 i => (
-                    textIsNotEmpty(tasks[i]) && <Item key={i} index={i} text={tasks[i]}/>)
+                    textIsNotEmpty(tasks[i]) && <Item key={i} index={i} text={tasks[i]} className='created'/>)
                 )
             }
         </div>

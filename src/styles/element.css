@@ -36,13 +36,46 @@ span::before {
   background-color: rgb(74, 115, 205);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: 0.3s ease;
 }
 
 
-.item:has(input:checked) span::before {
+.text-box {
+    position: relative;
+}
+
+.box {
+    width: calc(100% + 16px);
+    height: 4px;
+    background-color: rgb(74, 115, 205);
+    position: absolute;
+    inset: 50% -8px;
+    border-radius: 8px;
+    
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.3s ease;
+}
+
+.lining-show {
     transform: scaleX(1);
-    
-    border-radius: 7px;
-    
+}
+
+.lining-hide {
+    transform: scaleX(0);
+}
+
+
+.created {
+    animation: show .5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 1;
+}
+
+@keyframes show {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
 }

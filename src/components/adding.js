@@ -17,5 +17,6 @@ export const Input = (props) => {
     <div id="Input" className='ui'>
         <input id='user-tast'/>
         <button onClick={() => AddTask()}>Add</button>
+        <span>{}/{tasks.length}</span>
     </div>)
 }
