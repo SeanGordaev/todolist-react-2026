@@ -7,7 +7,7 @@ export const last = createContext();
 
 export const Input = (props) => {
 
-    const [tasks, changeTasks] = useContext(context);
+    const [tasks, changeTasks, done] = useContext(context);
 
     const textIsNotEmpty = (text) => {
         return /[a-zA-Z0-9]/.test(text)
@@ -24,6 +24,6 @@ export const Input = (props) => {
     <div id="Input" className='ui'>
         <input id='user-tast'/>
         <button onClick={() => AddTask()}>Add</button>
-        <span>{}/{tasks.length}</span>
+        <span>{done}/{tasks.length}</span>
     </div>)
 }
