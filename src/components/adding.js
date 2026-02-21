@@ -9,8 +9,15 @@ export const Input = (props) => {
 
     const [tasks, changeTasks] = useContext(context);
 
+    const textIsNotEmpty = (text) => {
+        return /[a-zA-Z0-9]/.test(text)
+    }
+
     const AddTask = () => {
-        changeTasks([...tasks, document.getElementById("user-tast").value]);
+        let value = document.getElementById("user-tast").value; 
+        if (textIsNotEmpty(value)) {
+            changeTasks([...tasks, value]);
+        }
     }
 
     return (
