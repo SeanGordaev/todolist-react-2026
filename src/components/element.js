@@ -7,43 +7,46 @@ export const cont = createContext();
 
 export const Item = (props) => {
 
-    const [tasks, changeTasks, done, setDone] = useContext(context);
-    const [animation, setAnimation] = useState("");
+    const [tasksInfo, changeTasks] = useContext(context);
+    const [animation, setAnimation] = useState("hide");
+    const [del, setdel] = useState(0);
+    
 
     const Check = () => {
-        if (animation === "lining-show") {
-            setAnimation("lining-hide")
-            setDone(done - 1);
+        if (props.object.done === true) {
+            setAnimation('hide');
         } else {
-            setAnimation("lining-show")
-            setDone(done + 1);
+            setAnimation('show');
         }
+        
+        changeTasks(prev =>
+            prev.map(task =>
+                task.id === props.object.id
+                ? { ...task, done: !task.done }
+                : task
+            )
+        );
     }
 
     const RemoveTask = () => {
-        var arr = new Array();
-        var index = 0;
-        for (let i of tasks) {
-            if (index !== props.id) {
-                arr.push(i);
-            }
-            index++;
-        }
-        changeTasks(arr);
-        
-        if (done >= tasks.length) {
-            setDone(tasks.length - 1);
-        }
+        changeTasks(tasksInfo.filter(item => item.id !== props.object.id));
+        setdel(del + 1);
+        console.log(tasksInfo)
     }
 
 
     return (
-    <div className={" item " + props.className}>
-        <input type="checkbox" onChange={Check}/>
-        <div className={'text-box'}>
-            <div className={'box ' + animation}></div>
-            <span id={props.id}>{props.text}</span>
+        <div className={" item " + props.className}>
+
+            <input type="checkbox" onChange={Check} checked={props.object.done}/>
+            
+            <div className={'text-box'}>
+                <div className={"box" + " " + ("lining-" + animation)}></div>
+                <span>{props.object.text}</span>
+            </div>
+
+            <button onClick={RemoveTask}>Del</button>
+
         </div>
-        <button onClick={RemoveTask}>Del</button>
-    </div>) 
+    ) 
 }

@@ -3,11 +3,11 @@ import React, {createContext, useState} from "react";
 export const context = createContext();
 
 export const Father = ({children}) => {
-    const [tasks, changeTasks] = useState([]);
-    const [done, setDone] = useState(0);
+    const [tasksInfo, changeTasks] = useState([]);
+
     return (
         <div className="listPlace">
-            <context.Provider value={[tasks, changeTasks, done, setDone]}>
+            <context.Provider value={[tasksInfo, changeTasks]}>
                 {children}
             </context.Provider>
         </div>

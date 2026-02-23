@@ -11,10 +11,10 @@ function App() {
     <div className="App">
 
       <Father>
-          <Input/>
+        <Input/>
 
-          <List/>
-        </Father>
+        <List/>
+      </Father>
 
 
     </div>
