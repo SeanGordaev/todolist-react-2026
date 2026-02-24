@@ -1,4 +1,4 @@
-.item {
+/* .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,6 +7,8 @@
     border-radius: 5px;
     min-width: 20svw;
 }
+
+
 
 .item > * {
     margin-left: 4px;
@@ -42,28 +44,69 @@ span::before {
 
 .text-box {
     position: relative;
+}*/
+ 
+
+.item {
+  display: flex;
+  gap: 25px;
+  background: white;
+  padding: 14px 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: 0.2s ease;
+  
 }
 
-.box {
-    width: calc(100% + 16px);
-    height: 4px;
-    background-color: rgb(74, 115, 205);
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #6366f1;
+  cursor: pointer;
+}
+
+.text-box {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.text-box span {
+  font-size: 14px;
+  transition: 0.2s ease;
+  font-size: 12px;
+  position: relative;
+  
+}
+
+.text-box span::before {
+    content: "";
     position: absolute;
-    inset: 50% -8px;
-    border-radius: 8px;
-    
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: 0.3s ease;
+    inset: 6px -8px;
+    transform: scale(0);
+    background-color: #4f46e5;
+    border-radius: 5px;
 }
 
-.lining-show {
-    transform: scaleX(1);
+.text-box span.done::before {
+    animation: show .5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
-.lining-hide {
-    transform: scaleX(0);
+.text-box span.hide::before {
+    animation: hide .5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
+
+
+.text-box.done span {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
 
 
 .created {
@@ -78,4 +121,29 @@ span::before {
     100% {
         transform: scaleX(1);
     }
+}
+@keyframes hide {
+    0% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+
+.item button {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+
+.item button:hover {
+  color: #dc2626;
+  background-color: #ff0b0b52;
 }

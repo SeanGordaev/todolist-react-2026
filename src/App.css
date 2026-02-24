@@ -1,4 +1,4 @@
-
+/* 
 .App {
   height: 100vh;
   width: 100vw;
@@ -18,4 +18,31 @@
 
 .ui {
   margin: 10px;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.listPlace {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }

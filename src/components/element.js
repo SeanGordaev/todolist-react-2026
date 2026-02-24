@@ -8,15 +8,15 @@ export const cont = createContext();
 export const Item = (props) => {
 
     const [tasksInfo, changeTasks] = useContext(context);
-    const [animation, setAnimation] = useState("hide");
+    const [done, setDone] = useState('');
     const [del, setdel] = useState(0);
     
 
     const Check = () => {
         if (props.object.done === true) {
-            setAnimation('hide');
+            setDone('hide');
         } else {
-            setAnimation('show');
+            setDone('done');
         }
         
         changeTasks(prev =>
@@ -41,8 +41,9 @@ export const Item = (props) => {
             <input type="checkbox" onChange={Check} checked={props.object.done}/>
             
             <div className={'text-box'}>
-                <div className={"box" + " " + ("lining-" + animation)}></div>
-                <span>{props.object.text}</span>
+                <span className={`${done}`}>
+                    {props.object.text}
+                </span>
             </div>
 
             <button onClick={RemoveTask}>Del</button>
