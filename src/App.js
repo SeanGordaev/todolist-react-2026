@@ -1,6 +1,6 @@
 import './App.css';
 import { List } from './components/list.js';
-import {Input} from './components/adding.js'
+import {Input} from './components/input.js'
 import { Father } from './components/father.js';
 
 
