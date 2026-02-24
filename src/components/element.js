@@ -9,7 +9,6 @@ export const Item = (props) => {
 
     const [tasksInfo, changeTasks] = useContext(context);
     const [done, setDone] = useState('');
-    const [del, setdel] = useState(0);
     
 
     const Check = () => {
@@ -30,8 +29,6 @@ export const Item = (props) => {
 
     const RemoveTask = () => {
         changeTasks(tasksInfo.filter(item => item.id !== props.object.id));
-        setdel(del + 1);
-        console.log(tasksInfo)
     }
 
 
