@@ -1,13 +1,35 @@
 # To Do List (Project React - 2026)
 > every day - day for learning
 
-### Main:
-I saw on YouTube that someone made a ToDoList on react and I wanted to try also. His website also seem very pretty so also I want to try make a good visulation.
+---
 
-### Logic:
-* Enter tasks from user and adding when press on button "Add"
-* Delete specific that task where user press on button "Del"
+### Main:
+I saw on YouTube that someone made a ToDo list in React, and I wanted to try it too . His website also seemed very pretty, so I want to try to make a good visualization.
+
+---
+
+### Web-Logic:
+* Enter tasks from the user and add them when pressing the button "Add":
+  * Stop from adding empty text -> the user must enter at least one letter or number .
+* Delete specifically that task where the user presses the button "Del"
+* Mark task as "done" that makes a line on the task text
+* When user marks a task as "done", the text next to `input` shows how many tasks the user done.
+* The color of the text about tasks and how much of them is done will change according to the user's progress. 
+
+### Code-Logic:
+* all components (apart app and index) creating in compnent `father` that has info about all user tasks. `father` creates context (`createContext()`) so all his childrens can check user's tasks and work with them.
 * 
+
+* All task is object that has three Properties:
+```JavaScript
+{
+  id: number,
+  text: string,
+  done: boolean
+}
+```
+
+---
 
 ### Visual:
 * Input task and button for adding
@@ -28,8 +50,9 @@ I saw on YouTube that someone made a ToDoList on react and I wanted to try also.
 
 #### brean Storm:
 - progress bar ?
-  - visulation of that how much task you have to do ?
-- animation of creating and removing task?
-  - scaleX 0 -> scaleX 1 | for creating ?
-  - scaleX 1 -> scaleX 0 -> delete | for deleting ?
--  add saving task also after page's update and exit from page 
+  - visulation of that how much task you have to do - X 
+  - change color text according to user progress - V
+- animation of creating - V
+- add saving task also after page's update and exit from page - ?
+  - learn backend?
+  - localStorag?
