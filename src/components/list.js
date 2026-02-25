@@ -13,7 +13,7 @@ export const List = () => {
         {
         Array.from({ length:tasksInfo.length }, (_, i) => i).map(
             i => (
-                    <Item key={tasksInfo[i].id} object={tasksInfo[i]} className='created'/>)
+                <Item key={tasksInfo[i].id} object={tasksInfo[i]} className='created'/>)
             )
         }
         </div>

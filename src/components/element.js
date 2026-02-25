@@ -33,7 +33,7 @@ export const Item = (props) => {
 
 
     return (
-        <div className={" item " + props.className}>
+        <div className={"item " + props.className}>
 
             <input type="checkbox" onChange={Check} checked={props.object.done}/>
             
