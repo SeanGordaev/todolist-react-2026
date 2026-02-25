@@ -10,7 +10,7 @@ export const Input = (props) => {
     const [tasksInfo, changeTasks] = useContext(context);
     const [text, setText] = useState('');
 
-    const done = tasksInfo.filter(t => t.done).length; // count of done tasts
+    const done = tasksInfo.filter(t => t.done).length; // count of done tasks
     const progress = tasksInfo.length === 0 
                     ? 0
                     : (done) / tasksInfo.length;
@@ -36,7 +36,7 @@ export const Input = (props) => {
 
     return (
     <div id="Input" className='ui'>
-        <input id='user-tast' onChange={e => setText(e.target.value)}/>
+        <input id='user-task' onChange={e => setText(e.target.value)}/>
         <button onClick={AddTask}>Add</button>
         <span style={{"color": color}}>{done}/{tasksInfo.length}</span>
     </div>)
