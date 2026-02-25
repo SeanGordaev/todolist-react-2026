@@ -19,8 +19,9 @@ I saw on YouTube that someone made a ToDoList on react and I wanted to try also.
 * label that show how much tasks you do from all your tasks (in proccess)
 * Main Colors: `Blue`, `White` and `Light Blue`
 
+### Photo From The Website:
 
-
+<img src="image.png" alt="Alt text" width="700" />
 
 
 --- 
