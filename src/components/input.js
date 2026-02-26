@@ -21,9 +21,17 @@ export const Input = (props) => {
     const textIsNotEmpty = (text) => {
         return /[a-zA-Z0-9]/.test(text)
     }
+    
+    const IsExist = (text) => {
+        let exit = false;
+        tasksInfo.forEach(element => {
+           if (element.text === text) { exit = true; }
+        });
+        return exit;
+    }
 
     const AddTask = () => {
-        if (textIsNotEmpty(text)) {
+        if (textIsNotEmpty(text) && !IsExist(text)) {
             changeTasks([...tasksInfo, 
                 {
                     id: crypto.randomUUID(),
