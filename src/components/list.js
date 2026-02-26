@@ -1,5 +1,5 @@
 import "../styles/list.css"
-import { Item } from './element.js'
+import { Item } from './tasks.js'
 import { useContext } from 'react'
 import { context } from './father.js'
 
