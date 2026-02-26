@@ -9,7 +9,6 @@ export const Item = (props) => {
 
     const [tasksInfo, changeTasks] = useContext(context);
     const [done, setDone] = useState('');
-    
 
     const Check = () => {
         if (props.object.done === true) {
@@ -31,12 +30,18 @@ export const Item = (props) => {
         const currentIndex = tasksInfo.findIndex(el => el.id === props.object.id);
         const newIndex = currentIndex + flag;
 
-        if (newIndex < 0 || newIndex >= tasksInfo.length) return;
+        if (newIndex < 0) {
+            return;
+        };
+        if (newIndex >= tasksInfo.length) {
+            return;
+        };
 
         let toSwap = [...tasksInfo];
         [toSwap[newIndex], toSwap[currentIndex]] = [toSwap[currentIndex], toSwap[newIndex]]
 
         changeTasks(toSwap);
+
     }
 
     const RemoveTask = () => {
@@ -50,7 +55,7 @@ export const Item = (props) => {
             <input type="checkbox" onChange={Check} checked={props.object.done}/>
             
             <div className={'text-box'}>
-                <span className={`${done}`}>
+                <span className={`${done}`} >
                     {props.object.text}
                 </span>
             </div>
@@ -58,8 +63,8 @@ export const Item = (props) => {
             <button onClick={RemoveTask} id='del'>Del</button>
 
             <div className='moving'>
-                <button id='up' className='moving-button' onClick={() => Moving(-1)}>/\</button>
-                <button id='down' className='moving-button' onClick={() => Moving(1)}>\/</button>
+                <button id='up' className='moving-button' onClick={() => Moving(-1)}>↑</button>
+                <button id='down' className='moving-button' onClick={() => Moving(1)}>↓</button>
             </div>
 
         </div>
