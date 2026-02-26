@@ -1,5 +1,6 @@
 .item {
   display: flex;
+  align-items: center;
   gap: 25px;
   background: white;
   padding: 14px 16px;
@@ -23,16 +24,13 @@
 
 .text-box {
   flex: 1;
-  position: relative;
-  text-align: center;
+  display: flex;
 }
 
 .text-box span {
-  font-size: 14px;
-  transition: 0.2s ease;
   font-size: 12px;
+  transition: 0.2s ease;
   position: relative;
-  
 }
 
 .text-box span::before {
@@ -59,7 +57,6 @@
 }
 
 
-
 .created {
     animation: show .5s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 1;
@@ -83,7 +80,7 @@
 }
 
 
-.item button {
+.item #del {
   background: transparent;
   border: none;
   color: #ef4444;
@@ -94,7 +91,23 @@
   padding: 5px 5px;
 }
 
-.item button:hover {
+.item #del:hover {
   color: #dc2626;
   background-color: #ff0b0b52;
+}
+
+
+
+.moving {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: space-around;
+}
+
+.moving > button {
+    font-size: 8px;
+    padding: 2px;
+    padding-bottom: 0;
+    padding-top: 0;
 }
