@@ -26,28 +26,17 @@ export const Item = (props) => {
             )
         );
     }
+
     const Moving = (flag) => { // -1 - Up | 1 - Down
-        let index = flag;
-        let currentIndex;
+        const currentIndex = tasksInfo.findIndex(el => el.id === props.object.id);
+        const newIndex = currentIndex + flag;
 
-        tasksInfo.forEach(el => {
-            (el !== undefined) && (el.id !== props.object.id) && (currentIndex === undefined)
-            ? index ++
-            : currentIndex = (index - flag)
-        });
+        if (newIndex < 0 || newIndex >= tasksInfo.length) return;
 
+        let toSwap = [...tasksInfo];
+        [toSwap[newIndex], toSwap[currentIndex]] = [toSwap[currentIndex], toSwap[newIndex]]
 
-        if (flag === 1) {
-            if (index != -1) {
-                [tasksInfo[index], tasksInfo[currentIndex]] = [tasksInfo[currentIndex], tasksInfo[index]];
-                changeTasks([...tasksInfo]);
-            }
-        } else {
-            if (index < tasksInfo.length - 1) {
-                [tasksInfo[index], tasksInfo[currentIndex]] = [tasksInfo[currentIndex], tasksInfo[index]];
-                changeTasks([...tasksInfo]);
-            }
-        }
+        changeTasks(toSwap);
     }
 
     const RemoveTask = () => {
