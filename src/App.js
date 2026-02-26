@@ -6,7 +6,6 @@ import { Father } from './components/father.js';
 
 function App() {
 
-
   return (
     <div className="App">
 
