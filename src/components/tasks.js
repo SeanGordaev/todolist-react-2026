@@ -39,6 +39,8 @@ export const Item = (props) => {
 
     useEffect(() => {
         CheckMovingAbility();
+
+        // eslint-disable-next-line
     }, [tasksInfo])
 
     const Moving = (flag) => { // -1 - Up | 1 - Down
